@@ -206,3 +206,51 @@ body {
 
 
 }
+
+button {
+
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #1d4ed8
+    );
+
+    color:white;
+
+    border:none;
+
+    padding:14px 25px;
+
+    border-radius:14px;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    margin:8px;
+
+    box-shadow:
+    0 10px 25px rgba(37,99,235,.35);
+
+    transition:.3s;
+
+}
+
+
+button:hover {
+
+    transform:translateY(-4px);
+
+    box-shadow:
+    0 15px 35px rgba(37,99,235,.5);
+
+}
+
+
+button:active {
+
+    transform:scale(.96);
+
+}
