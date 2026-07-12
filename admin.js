@@ -82,29 +82,66 @@ async function loadBlocks() {
 
     let text = document.getElementById("text-" + id).value;
 
+    let file = document.getElementById("image-" + id).files[0];
+
+    let updateData = {
+        text: text
+    };
+
+
+    // Wenn ein neues Bild ausgewählt wurde
+    if (file) {
+
+        let fileName = Date.now() + "-" + file.name;
+
+
+        let { error: uploadError } = await supabaseClient
+            .storage
+            .from("images")
+            .upload(fileName, file);
+
+
+        if (uploadError) {
+
+            console.log(uploadError);
+            alert("Bild konnte nicht hochgeladen werden");
+            return;
+
+        }
+
+
+        let { data } = supabaseClient
+            .storage
+            .from("images")
+            .getPublicUrl(fileName);
+
+
+        updateData.image_url = data.publicUrl;
+
+    }
+
 
     let { error } = await supabaseClient
         .from("blocks")
-        .update({
-            text: text
-        })
+        .update(updateData)
         .eq("id", id);
+
 
 
     if (error) {
 
-        alert("Fehler beim Speichern");
-
         console.log(error);
+        alert("Fehler beim Speichern");
 
     } else {
 
         alert("Block geändert!");
 
+        loadBlocks();
+
     }
 
 }
-
 
     let container = document.getElementById("blocks");
 
