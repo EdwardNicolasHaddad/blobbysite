@@ -83,46 +83,54 @@ async function loadBlocks() {
         let div = document.createElement("div");
 
 
-        div.innerHTML = `
-            <label>Position:</label>
+       div.innerHTML = `
 
-            <input 
-                id="position-${block.id}" 
-                value="${block.position}"
-            >
+<label><b>Position:</b></label><br>
 
-            <textarea id="text-${block.id}">
-                ${block.text}
-            </textarea>
+<input
+    id="position-${block.id}"
+    type="number"
+    value="${block.position}"
+    min="1"
+>
 
-            <br><br>
+<br><br>
 
-            <img src="${block.image_url}" width="300">
+<label><b>Text:</b></label><br>
 
-            <br><br>
+<textarea id="text-${block.id}">${block.text}</textarea>
 
-            <input type="file" id="image-${block.id}" accept="image/*">
+<br><br>
 
-            <br><br>
+<img src="${block.image_url}" width="300">
 
-            <button onclick="removeImage(${block.id})">
-                Bild löschen
-            </button>
+<br><br>
 
-            <br><br>
+<label><b>Bild:</b></label><br>
 
-            <button onclick="updateBlock(${block.id})">
-                Speichern
-            </button>
+<input
+    type="file"
+    id="image-${block.id}"
+    accept="image/*"
+>
 
-            <br><br>
+<br><br>
 
-            <button onclick="deleteBlock(${block.id})">
-                Löschen
-            </button>
+<button onclick="removeImage(${block.id})">
+    Bild löschen
+</button>
 
-            <hr>
-        `;
+<button onclick="updateBlock(${block.id})">
+    Speichern
+</button>
+
+<button onclick="deleteBlock(${block.id})">
+    Block löschen
+</button>
+
+<hr>
+
+`;
 
 
         container.appendChild(div);
