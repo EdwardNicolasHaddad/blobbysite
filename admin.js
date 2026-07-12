@@ -104,6 +104,12 @@ async function loadBlocks() {
                 Speichern
             </button>
 
+            <br><br>
+
+            <button onclick="deleteBlock(${block.id})">
+                Löschen
+            </button>
+
             <hr>
         `;
 
