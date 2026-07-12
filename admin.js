@@ -1,9 +1,43 @@
-async function loadContent() {
+async function addBlock() {
+
+    let position = document.getElementById("position").value;
+    let text = document.getElementById("blockText").value;
+    let image = document.getElementById("imageUrl").value;
+
+
+    let { error } = await supabaseClient
+        .from("blocks")
+        .insert({
+            position: position,
+            text: text,
+            image_url: image
+        });
+
+
+    if (error) {
+
+        alert("Fehler beim Hinzufügen");
+
+        console.log(error);
+
+    } else {
+
+        alert("Block hinzugefügt!");
+
+        loadBlocks();
+
+    }
+
+}
+
+
+
+async function loadBlocks() {
 
     let { data, error } = await supabaseClient
-        .from("content")
+        .from("blocks")
         .select("*")
-        .limit(1);
+        .order("position");
 
 
     if (error) {
@@ -12,38 +46,28 @@ async function loadContent() {
     }
 
 
-    document.getElementById("title").value = data[0].title;
-    document.getElementById("text").value = data[0].text;
+    let container = document.getElementById("blocks");
+
+    container.innerHTML = "";
+
+
+    data.forEach(block => {
+
+        let div = document.createElement("div");
+
+        div.innerHTML = `
+            <h3>Position ${block.position}</h3>
+            <p>${block.text}</p>
+            <img src="${block.image_url}" width="300">
+            <hr>
+        `;
+
+
+        container.appendChild(div);
+
+    });
 
 }
 
 
-async function saveContent() {
-
-    let title = document.getElementById("title").value;
-    let text = document.getElementById("text").value;
-
-
-    let { error } = await supabaseClient
-        .from("content")
-        .update({
-            title: title,
-            text: text
-        })
-        .eq("id", 1);
-
-
-    if (error) {
-
-        alert("Fehler beim Speichern");
-
-    } else {
-
-        alert("Gespeichert!");
-
-    }
-
-}
-
-
-loadContent();
+loadBlocks();
