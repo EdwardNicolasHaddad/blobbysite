@@ -1,9 +1,9 @@
-async function loadContent() {
+async function loadBlocks() {
 
     let { data, error } = await supabaseClient
-        .from("content")
+        .from("blocks")
         .select("*")
-        .limit(1);
+        .order("position");
 
 
     if (error) {
@@ -12,13 +12,28 @@ async function loadContent() {
     }
 
 
-    document.getElementById("title").innerHTML = data[0].title;
+    let container = document.getElementById("blocks");
 
-    document.getElementById("text").innerHTML = data[0].text;
+    container.innerHTML = "";
 
-    document.getElementById("image").src = data[0].image_url;
+
+    data.forEach(block => {
+
+        let div = document.createElement("div");
+
+
+        div.innerHTML = `
+            <p>${block.text}</p>
+            <img src="${block.image_url}" width="500">
+            <br><br>
+        `;
+
+
+        container.appendChild(div);
+
+    });
 
 }
 
 
-loadContent();
+loadBlocks();
