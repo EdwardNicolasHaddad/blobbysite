@@ -20,6 +20,7 @@ async function loadBlocks() {
     data.forEach(block => {
 
         let div = document.createElement("div");
+        div.className = "card";
 
 
         div.innerHTML = `
