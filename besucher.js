@@ -16,6 +16,8 @@ async function loadContent() {
 
     document.getElementById("text").innerHTML = data[0].text;
 
+    document.getElementById("image").src = data[0].image_url;
+
 }
 
 
