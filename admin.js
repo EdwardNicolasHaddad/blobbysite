@@ -133,6 +133,12 @@ async function updateBlock(id) {
 
     let position = document.getElementById("position-" + id).value;
 
+    let { data: currentBlock } = await supabaseClient
+        .from("blocks")
+        .select("position")
+        .eq("id", id)
+        .single();
+
     let file = document.getElementById("image-" + id).files[0];
 
 
