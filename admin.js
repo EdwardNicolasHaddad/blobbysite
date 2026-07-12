@@ -131,7 +131,8 @@ async function updateBlock(id) {
 
     let text = document.getElementById("text-" + id).value;
 
-    let position = document.getElementById("position-" + id).value;
+    let newPosition = Number(document.getElementById("position-" + id).value);
+
 
     let { data: currentBlock } = await supabaseClient
         .from("blocks")
@@ -139,14 +140,75 @@ async function updateBlock(id) {
         .eq("id", id)
         .single();
 
+
+    let oldPosition = Number(currentBlock.position);
+
+
     let file = document.getElementById("image-" + id).files[0];
+
+
+    // Positionen verschieben
+    if (newPosition !== oldPosition) {
+
+
+        if (newPosition < oldPosition) {
+
+            // Blöcke nach unten schieben
+            let { data: blocksToMove } = await supabaseClient
+                .from("blocks")
+                .select("id, position")
+                .gte("position", newPosition)
+                .lt("position", oldPosition);
+
+
+            for (let block of blocksToMove) {
+
+                await supabaseClient
+                    .from("blocks")
+                    .update({
+                        position: block.position + 1
+                    })
+                    .eq("id", block.id);
+
+            }
+
+
+        } else {
+
+
+            // Blöcke nach oben schieben
+            let { data: blocksToMove } = await supabaseClient
+                .from("blocks")
+                .select("id, position")
+                .gt("position", oldPosition)
+                .lte("position", newPosition);
+
+
+            for (let block of blocksToMove) {
+
+                await supabaseClient
+                    .from("blocks")
+                    .update({
+                        position: block.position - 1
+                    })
+                    .eq("id", block.id);
+
+            }
+
+        }
+
+    }
+
 
 
     let updateData = {
         text: text,
-        position: position
+        position: newPosition
     };
 
+
+
+    // Neues Bild hochladen
     if (file) {
 
         let fileName = Date.now() + "-" + file.name;
@@ -156,6 +218,7 @@ async function updateBlock(id) {
             .storage
             .from("images")
             .upload(fileName, file);
+
 
 
         if (uploadError) {
@@ -178,6 +241,7 @@ async function updateBlock(id) {
     }
 
 
+
     let { error } = await supabaseClient
         .from("blocks")
         .update(updateData)
@@ -198,7 +262,6 @@ async function updateBlock(id) {
     }
 
 }
-
 async function deleteBlock(id) {
 
     let confirmDelete = confirm("Diesen Block wirklich löschen?");
