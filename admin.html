@@ -1,11 +1,30 @@
 <!DOCTYPE html>
 <html>
 
+<head>
+    <title>Admin</title>
+</head>
+
 <body>
 
-<h1>Admin Bereich</h1>
+<h1>Website bearbeiten</h1>
 
-<p>Hier kannst du später deine Website bearbeiten.</p>
+<input id="title" placeholder="Titel">
+
+<br><br>
+
+<textarea id="text" placeholder="Text"></textarea>
+
+<br><br>
+
+<button onclick="saveContent()">
+Speichern
+</button>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script src="supabase.js"></script>
+<script src="admin.js"></script>
 
 </body>
 
