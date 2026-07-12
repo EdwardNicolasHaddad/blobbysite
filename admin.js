@@ -4,14 +4,12 @@ async function addBlock() {
     let text = document.getElementById("blockText").value;
     let file = document.getElementById("imageFile").files[0];
 
-
     let imageUrl = "";
 
 
     if (file) {
 
         let fileName = Date.now() + "-" + file.name;
-
 
         let { error: uploadError } = await supabaseClient
             .storage
@@ -20,11 +18,9 @@ async function addBlock() {
 
 
         if (uploadError) {
-
             console.log(uploadError);
             alert("Bild konnte nicht hochgeladen werden");
             return;
-
         }
 
 
@@ -35,7 +31,6 @@ async function addBlock() {
 
 
         imageUrl = data.publicUrl;
-
     }
 
 
@@ -56,7 +51,6 @@ async function addBlock() {
     } else {
 
         alert("Block hinzugefügt!");
-
         loadBlocks();
 
     }
@@ -78,9 +72,62 @@ async function loadBlocks() {
         return;
     }
 
-    
 
-    // Wenn ein neues Bild ausgewählt wurde
+    let container = document.getElementById("blocks");
+
+    container.innerHTML = "";
+
+
+    data.forEach(block => {
+
+        let div = document.createElement("div");
+
+
+        div.innerHTML = `
+            <h3>Position ${block.position}</h3>
+
+            <textarea id="text-${block.id}">
+                ${block.text}
+            </textarea>
+
+            <br><br>
+
+            <img src="${block.image_url}" width="300">
+
+            <br><br>
+
+            <input type="file" id="image-${block.id}" accept="image/*">
+
+            <br><br>
+
+            <button onclick="updateBlock(${block.id})">
+                Speichern
+            </button>
+
+            <hr>
+        `;
+
+
+        container.appendChild(div);
+
+    });
+
+}
+
+
+
+async function updateBlock(id) {
+
+    let text = document.getElementById("text-" + id).value;
+
+    let file = document.getElementById("image-" + id).files[0];
+
+
+    let updateData = {
+        text: text
+    };
+
+
     if (file) {
 
         let fileName = Date.now() + "-" + file.name;
@@ -127,60 +174,9 @@ async function loadBlocks() {
     } else {
 
         alert("Block geändert!");
-
         loadBlocks();
 
     }
-
-}
-
-async function updateBlock(id) {
-
-    let text = document.getElementById("text-" + id).value;
-
-    let file = document.getElementById("image-" + id).files[0];
-
-    let updateData = {
-        text: text
-    };
-
-
-    let container = document.getElementById("blocks");
-
-    container.innerHTML = "";
-
-
-    data.forEach(block => {
-
-        let div = document.createElement("div");
-
-        div.innerHTML = `
-    <h3>Position ${block.position}</h3>
-
-    <textarea id="text-${block.id}">
-        ${block.text}
-    </textarea>
-
-    <br><br>
-
-    <img src="${block.image_url}" width="300">
-
-    <br><br>
-
-    <input type="file" id="image-${block.id}" accept="image/*">
-
-    <br><br>
-
-    <button onclick="updateBlock(${block.id})">
-        Speichern
-    </button>
-
-    <hr>
-`;
-
-        container.appendChild(div);
-
-    });
 
 }
 
