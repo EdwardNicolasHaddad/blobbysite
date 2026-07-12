@@ -137,8 +137,8 @@ async function updateBlock(id) {
 
 
     let updateData = {
-    text: text,
-    position: position
+        text: text,
+        position: position
     };
 
     if (file) {
