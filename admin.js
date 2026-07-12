@@ -78,6 +78,33 @@ async function loadBlocks() {
         return;
     }
 
+    async function updateBlock(id) {
+
+    let text = document.getElementById("text-" + id).value;
+
+
+    let { error } = await supabaseClient
+        .from("blocks")
+        .update({
+            text: text
+        })
+        .eq("id", id);
+
+
+    if (error) {
+
+        alert("Fehler beim Speichern");
+
+        console.log(error);
+
+    } else {
+
+        alert("Block geändert!");
+
+    }
+
+}
+
 
     let container = document.getElementById("blocks");
 
