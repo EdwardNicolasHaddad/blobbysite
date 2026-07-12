@@ -89,11 +89,24 @@ async function loadBlocks() {
         let div = document.createElement("div");
 
         div.innerHTML = `
-            <h3>Position ${block.position}</h3>
-            <p>${block.text}</p>
-            <img src="${block.image_url}" width="300">
-            <hr>
-        `;
+    <h3>Position ${block.position}</h3>
+
+    <textarea id="text-${block.id}">
+        ${block.text}
+    </textarea>
+
+    <br><br>
+
+    <img src="${block.image_url}" width="300">
+
+    <br><br>
+
+    <button onclick="updateBlock(${block.id})">
+        Speichern
+    </button>
+
+    <hr>
+`;
 
 
         container.appendChild(div);
