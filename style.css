@@ -1,253 +1,208 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-body{
 
-    background:linear-gradient(135deg,#163b72,#2555a8,#376ec7);
+body {
 
-    min-height:100vh;
+    min-height: 100vh;
 
-    color:#222;
+    background:
+    linear-gradient(
+        135deg,
+        #102a56,
+        #1e4d91,
+        #2765b8
+    );
 
-    padding:50px;
-
-}
-
-.hero{
-
-    text-align:center;
-
-    margin-bottom:60px;
+    padding: 50px 20px;
 
 }
 
-.hero h1{
 
-    font-size:60px;
+/* Kopfbereich */
+
+.hero {
+
+    text-align: center;
+
+    margin-bottom: 60px;
+
+}
+
+
+.hero h1 {
 
     color:white;
 
+    font-size:60px;
+
     font-weight:700;
 
-    margin-bottom:15px;
-
-    text-shadow:0 6px 20px rgba(0,0,0,.3);
+    text-shadow:
+    0 5px 20px rgba(0,0,0,.4);
 
 }
 
-.hero p{
+
+.hero p {
 
     color:white;
 
     font-size:22px;
 
+    margin-top:15px;
+
     opacity:.9;
 
 }
 
-h1{
 
-    text-align:center;
+/* Inhalt */
 
-    font-size:50px;
+#blocks {
 
-    margin-bottom:50px;
-
-    font-weight:700;
-
-    color:white;
-
-    text-shadow:0 5px 20px rgba(0,0,0,.3);
-
-}
-
-#blocks{
-
-    max-width:950px;
+    max-width:900px;
 
     margin:auto;
 
 }
 
-.card{
+
+
+/* Karten */
+
+.card {
 
     background:white;
 
     padding:35px;
 
-    border-radius:25px;
-
     margin-bottom:40px;
 
-    box-shadow:0 20px 40px rgba(0,0,0,.18);
+    border-radius:25px;
 
-    transition:.35s;
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.25);
+
+    animation: erscheinen .6s ease;
+
+    transition:.3s;
 
 }
 
-.card:hover{
+
+.card:hover {
 
     transform:translateY(-8px);
 
-    box-shadow:0 30px 60px rgba(0,0,0,.25);
-
 }
 
-.card p{
+
+
+/* Text */
+
+.text p {
 
     font-size:20px;
 
     line-height:1.8;
 
-    margin-bottom:25px;
+    color:#333;
 
 }
 
-.card img{
+
+
+/* Bilder */
+
+.card img {
 
     width:100%;
+
+    margin-top:30px;
 
     border-radius:20px;
 
-    transition:.35s;
+    display:block;
 
-}
-
-.card img:hover{
-
-    transform:scale(1.02);
-
-}
-
-button{
-
-    background:#2563eb;
-
-    color:white;
-
-    border:none;
-
-    border-radius:12px;
-
-    padding:14px 24px;
-
-    font-size:16px;
-
-    cursor:pointer;
-
-    margin-right:10px;
-
-    margin-top:10px;
+    box-shadow:
+    0 15px 30px rgba(0,0,0,.2);
 
     transition:.3s;
 
-    box-shadow:0 10px 25px rgba(37,99,235,.35);
+}
+
+
+.card img:hover {
+
+    transform:scale(1.03);
 
 }
 
-button:hover{
 
-    background:#1d4ed8;
 
-    transform:translateY(-2px);
+/* Animation */
 
-}
+@keyframes erscheinen {
 
-input,
-textarea{
+    from {
 
-    width:100%;
+        opacity:0;
 
-    margin-top:8px;
+        transform:translateY(30px);
 
-    margin-bottom:18px;
+    }
 
-    padding:14px;
 
-    border-radius:12px;
+    to {
 
-    border:1px solid #d4d4d4;
+        opacity:1;
 
-    font-size:16px;
+        transform:translateY(0);
+
+    }
 
 }
 
-textarea{
 
-    min-height:170px;
 
-    resize:vertical;
+/* Handy */
 
-}
+@media(max-width:700px){
 
-label{
 
-    font-weight:600;
+    body {
 
-}
+        padding:25px 15px;
 
-hr{
+    }
 
-    margin-top:35px;
 
-    border:none;
+    .hero h1 {
 
-}
+        font-size:40px;
 
-.card{
+    }
 
-    background:white;
 
-    border-radius:24px;
+    .hero p {
 
-    padding:35px;
+        font-size:18px;
 
-    margin-bottom:40px;
+    }
 
-    box-shadow:0 18px 45px rgba(0,0,0,.20);
 
-    transition:.35s;
+    .card {
 
-}
+        padding:25px;
 
-.card:hover{
+    }
 
-    transform:translateY(-8px);
-
-    box-shadow:0 28px 60px rgba(0,0,0,.25);
-
-}
-
-.card img{
-
-    width:100%;
-
-    border-radius:18px;
-
-    margin-top:25px;
-
-    display:block;
-
-    transition:.35s;
-
-}
-
-.card img:hover{
-
-    transform:scale(1.02);
-
-}
-
-.text p{
-
-    font-size:20px;
-
-    line-height:1.9;
 
 }
