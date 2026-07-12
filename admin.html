@@ -9,17 +9,30 @@
 
 <h1>Website bearbeiten</h1>
 
-<input id="title" placeholder="Titel">
+<h2>Neuen Block hinzufügen</h2>
+
+<input id="position" placeholder="Position">
 
 <br><br>
 
-<textarea id="text" placeholder="Text"></textarea>
+<textarea id="blockText" placeholder="Text"></textarea>
 
 <br><br>
 
-<button onclick="saveContent()">
-Speichern
+<input id="imageUrl" placeholder="Bild URL">
+
+<br><br>
+
+<button onclick="addBlock()">
+Block hinzufügen
 </button>
+
+
+<h2>Vorhandene Blöcke</h2>
+
+<div id="blocks">
+    Lade...
+</div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
