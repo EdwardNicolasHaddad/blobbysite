@@ -105,6 +105,12 @@ async function loadBlocks() {
 
             <br><br>
 
+            <button onclick="removeImage(${block.id})">
+                Bild löschen
+            </button>
+
+            <br><br>
+
             <button onclick="updateBlock(${block.id})">
                 Speichern
             </button>
