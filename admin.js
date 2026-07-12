@@ -84,7 +84,12 @@ async function loadBlocks() {
 
 
         div.innerHTML = `
-            <h3>Position ${block.position}</h3>
+            <label>Position:</label>
+
+            <input 
+                id="position-${block.id}" 
+                value="${block.position}"
+            >
 
             <textarea id="text-${block.id}">
                 ${block.text}
