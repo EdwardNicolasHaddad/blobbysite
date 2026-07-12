@@ -1,6 +1,7 @@
 async function checkCode() {
 
     let eingabe = document.getElementById("code").value;
+    console.log("Eingegebener Code:", eingabe);
 
     let { data, error } = await supabaseClient
         .from("codes")
