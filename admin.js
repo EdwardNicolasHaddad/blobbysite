@@ -2,7 +2,41 @@ async function addBlock() {
 
     let position = document.getElementById("position").value;
     let text = document.getElementById("blockText").value;
-    let image = document.getElementById("imageUrl").value;
+    let file = document.getElementById("imageFile").files[0];
+
+
+    let imageUrl = "";
+
+
+    if (file) {
+
+        let fileName = Date.now() + "-" + file.name;
+
+
+        let { error: uploadError } = await supabaseClient
+            .storage
+            .from("images")
+            .upload(fileName, file);
+
+
+        if (uploadError) {
+
+            console.log(uploadError);
+            alert("Bild konnte nicht hochgeladen werden");
+            return;
+
+        }
+
+
+        let { data } = supabaseClient
+            .storage
+            .from("images")
+            .getPublicUrl(fileName);
+
+
+        imageUrl = data.publicUrl;
+
+    }
 
 
     let { error } = await supabaseClient
@@ -10,15 +44,14 @@ async function addBlock() {
         .insert({
             position: position,
             text: text,
-            image_url: image
+            image_url: imageUrl
         });
 
 
     if (error) {
 
-        alert("Fehler beim Hinzufügen");
-
         console.log(error);
+        alert("Fehler beim Speichern");
 
     } else {
 
