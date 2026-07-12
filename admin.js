@@ -128,13 +128,16 @@ async function loadBlocks() {
 
     <br><br>
 
+    <input type="file" id="image-${block.id}" accept="image/*">
+
+    <br><br>
+
     <button onclick="updateBlock(${block.id})">
         Speichern
     </button>
 
     <hr>
 `;
-
 
         container.appendChild(div);
 
