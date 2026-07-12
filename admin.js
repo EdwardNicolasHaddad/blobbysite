@@ -78,16 +78,7 @@ async function loadBlocks() {
         return;
     }
 
-    async function updateBlock(id) {
-
-    let text = document.getElementById("text-" + id).value;
-
-    let file = document.getElementById("image-" + id).files[0];
-
-    let updateData = {
-        text: text
-    };
-
+    
 
     // Wenn ein neues Bild ausgewählt wurde
     if (file) {
@@ -142,6 +133,17 @@ async function loadBlocks() {
     }
 
 }
+
+async function updateBlock(id) {
+
+    let text = document.getElementById("text-" + id).value;
+
+    let file = document.getElementById("image-" + id).files[0];
+
+    let updateData = {
+        text: text
+    };
+
 
     let container = document.getElementById("blocks");
 
