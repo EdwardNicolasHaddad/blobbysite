@@ -131,13 +131,15 @@ async function updateBlock(id) {
 
     let text = document.getElementById("text-" + id).value;
 
+    let position = document.getElementById("position-" + id).value;
+
     let file = document.getElementById("image-" + id).files[0];
 
 
     let updateData = {
-        text: text
+    text: text,
+    position: position
     };
-
 
     if (file) {
 
