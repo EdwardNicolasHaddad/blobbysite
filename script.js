@@ -1,16 +1,15 @@
 async function checkCode() {
 
     let eingabe = document.getElementById("code").value;
-    console.log("Eingegebener Code:", eingabe);
 
     let { data, error } = await supabaseClient
         .from("codes")
         .select("*")
         .eq("code", eingabe)
-        .single();
+        .limit(1);
 
 
-    if (error || !data) {
+    if (error || data.length === 0) {
 
         alert("Falscher Code");
 
@@ -18,14 +17,14 @@ async function checkCode() {
     }
 
 
-    if (data.role === "admin") {
+    if (data[0].role === "admin") {
 
         window.location.href = "admin.html";
 
     }
 
 
-    else if (data.role === "besucher") {
+    else if (data[0].role === "besucher") {
 
         window.location.href = "besucher.html";
 
