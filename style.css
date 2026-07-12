@@ -19,6 +19,38 @@ body{
 
 }
 
+.hero{
+
+    text-align:center;
+
+    margin-bottom:60px;
+
+}
+
+.hero h1{
+
+    font-size:60px;
+
+    color:white;
+
+    font-weight:700;
+
+    margin-bottom:15px;
+
+    text-shadow:0 6px 20px rgba(0,0,0,.3);
+
+}
+
+.hero p{
+
+    color:white;
+
+    font-size:22px;
+
+    opacity:.9;
+
+}
+
 h1{
 
     text-align:center;
