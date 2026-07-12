@@ -298,4 +298,37 @@ async function deleteBlock(id) {
 
 }
 
+async function removeImage(id) {
+
+    let confirmDelete = confirm("Bild wirklich löschen?");
+
+
+    if (!confirmDelete) {
+        return;
+    }
+
+
+    let { error } = await supabaseClient
+        .from("blocks")
+        .update({
+            image_url: ""
+        })
+        .eq("id", id);
+
+
+
+    if (error) {
+
+        console.log(error);
+        alert("Bild konnte nicht gelöscht werden");
+
+    } else {
+
+        alert("Bild gelöscht!");
+        loadBlocks();
+
+    }
+
+}
+
 loadBlocks();
