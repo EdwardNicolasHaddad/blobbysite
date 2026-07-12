@@ -24,10 +24,20 @@ async function loadBlocks() {
 
 
         div.innerHTML = `
-            <p>${block.text}</p>
-            <img src="${block.image_url}" width="500">
-            <br><br>
-        `;
+
+    <div class="text">
+
+        <p>${block.text}</p>
+
+    </div>
+
+    ${
+        block.image_url
+            ? `<img src="${block.image_url}" alt="Bild">`
+            : ""
+    }
+
+`;
 
 
         container.appendChild(div);
