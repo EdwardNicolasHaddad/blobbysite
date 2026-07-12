@@ -186,5 +186,34 @@ async function updateBlock(id) {
 
 }
 
+async function deleteBlock(id) {
+
+    let confirmDelete = confirm("Diesen Block wirklich löschen?");
+
+
+    if (!confirmDelete) {
+        return;
+    }
+
+
+    let { error } = await supabaseClient
+        .from("blocks")
+        .delete()
+        .eq("id", id);
+
+
+    if (error) {
+
+        console.log(error);
+        alert("Fehler beim Löschen");
+
+    } else {
+
+        alert("Block gelöscht!");
+        loadBlocks();
+
+    }
+
+}
 
 loadBlocks();
