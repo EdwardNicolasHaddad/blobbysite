@@ -14,6 +14,18 @@ function getDeviceId(){
 
 }
 
+async function hasLiked(blockId){
+
+    let { data } = await supabaseClient
+        .from("likes")
+        .select("id")
+        .eq("block_id", blockId)
+        .eq("device_id", getDeviceId());
+
+    return data.length > 0;
+
+}
+
 async function loadBlocks() {
 
     let { data, error } = await supabaseClient
