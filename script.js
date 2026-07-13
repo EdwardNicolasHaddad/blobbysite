@@ -19,12 +19,16 @@ async function checkCode() {
 
     if (data[0].role === "admin") {
 
+        sessionStorage.setItem("admin", "true");
+
         window.location.href = "admin.html";
 
     }
 
 
     else if (data[0].role === "besucher") {
+
+        sessionStorage.setItem("visitor", "true");
 
         window.location.href = "besucher.html";
 
