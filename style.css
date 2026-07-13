@@ -559,15 +559,27 @@ button.block-delete {
 
 .like-button{
 
-    background:none;
+    background:transparent;
 
-    color:#dc2626;
-
-    font-size:28px;
+    border:none;
 
     padding:0;
 
+    margin:0;
+
+    color:#dc2626;
+
+    font-size:42px;
+
+    line-height:1;
+
+    cursor:pointer;
+
     box-shadow:none;
+
+    transition:.25s;
+
+    font-family:Arial, sans-serif;
 
 }
 
@@ -577,5 +589,12 @@ button.block-delete {
     transform:scale(1.15);
 
     box-shadow:none;
+
+}
+
+
+.like-button:active{
+
+    transform:scale(.95);
 
 }
