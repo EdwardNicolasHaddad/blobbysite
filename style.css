@@ -575,7 +575,7 @@ button.block-delete {
 
     color:#b8b8b8;
 
-    -webkit-text-stroke:1px #b8b8b8;
+    -webkit-text-stroke:0.4px #b8b8b8;
 
     transition:.25s;
 
