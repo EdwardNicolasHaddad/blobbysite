@@ -162,12 +162,38 @@ async function loadBlocks() {
 
 
         container.appendChild(div);
+        setupImageInputs();
 
     });
 
 }
 
+function setupImageInputs(){
 
+    document.querySelectorAll('input[type="file"]').forEach(input => {
+
+        input.addEventListener("change", function(){
+
+            let id = this.id.replace("image-","");
+
+            let display = document.getElementById("selected-" + id);
+
+
+            if(this.files.length > 0){
+
+                display.textContent = this.files[0].name;
+
+            } else {
+
+                display.textContent = "Keine Datei ausgewählt";
+
+            }
+
+        });
+
+    });
+
+}
 
 async function updateBlock(id) {
 
