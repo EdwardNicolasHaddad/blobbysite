@@ -559,7 +559,7 @@ button.block-delete {
 
 .like-button{
 
-    background:transparent;
+    background:none;
 
     border:none;
 
@@ -567,33 +567,42 @@ button.block-delete {
 
     margin:0;
 
-    font-size:45px;
+    width:45px;
 
-    line-height:1;
+    height:45px;
 
     cursor:pointer;
 
-    color:#b8b8b8;
+    box-shadow:none;
 
-    -webkit-text-stroke:0.2px #b8b8b8;
+}
+
+
+.like-button svg{
+
+    width:100%;
+
+    height:100%;
+
+    fill:none;
+
+    stroke:#b8b8b8;
+
+    stroke-width:1.2;
 
     transition:.25s;
 
-    box-shadow:none;
-
 }
 
 
-.like-button:hover{
+.like-button:hover svg{
 
     transform:scale(1.15);
 
-    box-shadow:none;
-
 }
 
 
-.like-button:active{
+.like-button:active svg{
 
     transform:scale(.95);
 
