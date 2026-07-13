@@ -50,7 +50,9 @@ async function loadBlocks() {
         let div = document.createElement("div");
         div.className = "card";
 
+        let liked = await hasLiked(block.id);
 
+        
         div.innerHTML = `
 
     <div class="text">
