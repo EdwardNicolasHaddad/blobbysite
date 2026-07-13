@@ -102,6 +102,12 @@ async function loadBlocks() {
 
 }
 
+function toggleLike(id){
+
+    console.log("Like gedrückt für Block:", id);
+
+}
+
 function logout() {
 
     sessionStorage.removeItem("visitor");
