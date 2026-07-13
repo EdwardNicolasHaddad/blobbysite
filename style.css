@@ -628,3 +628,16 @@ button.block-delete {
     stroke:#dc2626;
 
 }
+
+.like-button svg{
+
+    transition:transform .2s ease;
+
+}
+
+
+.like-button.animate svg{
+
+    transform:scale(1.35);
+
+}
