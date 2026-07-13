@@ -102,11 +102,51 @@ async function loadBlocks() {
 
 }
 
-function toggleLike(id){
+async function toggleLike(id){
 
     let button = event.currentTarget;
 
-    button.classList.toggle("liked");
+    let deviceId = getDeviceId();
+
+
+    let { data } = await supabaseClient
+        .from("likes")
+        .select("*")
+        .eq("block_id", id)
+        .eq("device_id", deviceId);
+
+
+    if(data.length > 0){
+
+        // Like entfernen
+
+        await supabaseClient
+            .from("likes")
+            .delete()
+            .eq("block_id", id)
+            .eq("device_id", deviceId);
+
+
+        button.classList.remove("liked");
+
+
+    } else {
+
+        // Like hinzufügen
+
+        await supabaseClient
+            .from("likes")
+            .insert({
+
+                block_id: id,
+                device_id: deviceId
+
+            });
+
+
+        button.classList.add("liked");
+
+    }
 
 }
 
