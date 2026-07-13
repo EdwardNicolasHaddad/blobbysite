@@ -33,6 +33,24 @@ async function addBlock() {
         imageUrl = data.publicUrl;
     }
 
+    // vorhandene Blöcke nach unten verschieben
+
+        let { data: blocksToMove } = await supabaseClient
+            .from("blocks")
+            .select("id, position")
+            .gte("position", position);
+
+
+        for (let block of blocksToMove) {
+
+            await supabaseClient
+                .from("blocks")
+                .update({
+                    position: block.position + 1
+                })
+                .eq("id", block.id);
+
+        }
 
     let { error } = await supabaseClient
         .from("blocks")
