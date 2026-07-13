@@ -348,4 +348,14 @@ function logout() {
 
 }
 
+document.getElementById("imageFile").addEventListener("change", function () {
+
+    const fileName = this.files.length
+        ? this.files[0].name
+        : "Keine Datei ausgewählt";
+
+    document.getElementById("selectedFile").textContent = fileName;
+
+});
+
 loadBlocks();
