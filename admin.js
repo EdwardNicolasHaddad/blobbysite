@@ -131,7 +131,16 @@ async function loadBlocks() {
     type="file"
     id="image-${block.id}"
     accept="image/*"
+    hidden
 >
+
+<label for="image-${block.id}" class="file-button">
+    Bild auswählen
+</label>
+
+<span id="selected-${block.id}" class="selected-file">
+    Keine Datei ausgewählt
+</span>
 
 <br><br>
 
