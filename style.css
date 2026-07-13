@@ -543,3 +543,39 @@ button.block-delete {
     white-space:nowrap;
 
 }
+
+.like-area{
+
+    margin-top:25px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+
+.like-button{
+
+    background:none;
+
+    color:#dc2626;
+
+    font-size:28px;
+
+    padding:0;
+
+    box-shadow:none;
+
+}
+
+
+.like-button:hover{
+
+    transform:scale(1.15);
+
+    box-shadow:none;
+
+}
