@@ -37,6 +37,19 @@ async function loadBlocks() {
             : ""
     }
 
+
+    <div class="like-area">
+
+        <button class="like-button">
+            ♡
+        </button>
+
+        <span>
+            ${block.likes || 0}
+        </span>
+
+    </div>
+
 `;
 
 
