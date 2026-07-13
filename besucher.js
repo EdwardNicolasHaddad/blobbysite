@@ -164,6 +164,8 @@ async function toggleLike(id){
 
 }
 
+loadBlocks();
+
 function logout() {
 
     sessionStorage.removeItem("visitor");
