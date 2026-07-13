@@ -162,9 +162,10 @@ async function toggleLike(id){
 
     }
 
+    loadBlocks();
+
 }
 
-loadBlocks();
 
 function logout() {
 
