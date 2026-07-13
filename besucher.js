@@ -46,5 +46,12 @@ async function loadBlocks() {
 
 }
 
+function logout() {
+
+    sessionStorage.removeItem("visitor");
+
+    window.location.href = "index.html";
+
+}
 
 loadBlocks();
