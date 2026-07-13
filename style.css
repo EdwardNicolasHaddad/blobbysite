@@ -436,8 +436,10 @@ textarea{
 
     margin-top:12px;
 
-    color:white;
+    color:#333;
 
     font-size:15px;
+
+    font-weight:500;
 
 }
