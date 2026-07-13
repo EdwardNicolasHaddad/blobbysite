@@ -70,7 +70,7 @@ async function loadBlocks() {
 
     <div class="like-area">
 
-        <button class="like-button">
+        <button class="like-button ${liked ? "liked" : ""}">
 
             <svg viewBox="0 0 24 24">
                 <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
