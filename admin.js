@@ -340,4 +340,12 @@ async function removeImage(id) {
 
 }
 
+function logout() {
+
+    sessionStorage.removeItem("admin");
+
+    window.location.href = "index.html";
+
+}
+
 loadBlocks();
