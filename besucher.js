@@ -26,6 +26,18 @@ async function hasLiked(blockId){
 
 }
 
+async function getLikeCount(blockId){
+
+    let { count } = await supabaseClient
+        .from("likes")
+        .select("*", { count:"exact", head:true })
+        .eq("block_id", blockId);
+
+
+    return count || 0;
+
+}
+
 async function loadBlocks() {
 
     let { data, error } = await supabaseClient
