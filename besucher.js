@@ -104,7 +104,9 @@ async function loadBlocks() {
 
 function toggleLike(id){
 
-    console.log("Like gedrückt für Block:", id);
+    let button = event.currentTarget;
+
+    button.classList.toggle("liked");
 
 }
 
