@@ -14,6 +14,8 @@ function getDeviceId(){
 
 }
 
+console.log(getDeviceId());
+
 async function loadBlocks() {
 
     let { data, error } = await supabaseClient
