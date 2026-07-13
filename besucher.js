@@ -45,7 +45,7 @@ async function loadBlocks() {
     container.innerHTML = "";
 
 
-    data.forEach(block => {
+    for (const block of data) {
 
         let div = document.createElement("div");
         div.className = "card";
@@ -93,7 +93,7 @@ async function loadBlocks() {
 
         container.appendChild(div);
 
-    });
+    }
 
 }
 
