@@ -54,7 +54,7 @@ async function loadBlocks() {
 
         </button>
         
-        <span>
+        <span class="like-count">
             ${block.likes || 0}
         </span>
 
