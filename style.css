@@ -608,3 +608,15 @@ button.block-delete {
     transform:scale(.95);
 
 }
+
+.like-count{
+
+    font-size:22px;
+
+    font-weight:600;
+
+    color:#555;
+
+    min-width:25px;
+
+}
