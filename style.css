@@ -620,3 +620,11 @@ button.block-delete {
     min-width:25px;
 
 }
+
+.like-button.liked svg{
+
+    fill:#dc2626;
+
+    stroke:#dc2626;
+
+}
