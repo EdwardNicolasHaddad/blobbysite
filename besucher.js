@@ -63,6 +63,8 @@ async function loadBlocks() {
         div.className = "card";
 
         let liked = await hasLiked(block.id);
+        
+        let likeCount = await getLikeCount(block.id);
 
         
         div.innerHTML = `
@@ -100,7 +102,7 @@ async function loadBlocks() {
         </button>
         
         <span class="like-count">
-            ${block.likes || 0}
+            ${likeCount}
         </span>
 
     </div>
