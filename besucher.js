@@ -120,6 +120,8 @@ async function toggleLike(id){
 
     let button = event.currentTarget;
 
+    let countElement = button.parentElement.querySelector(".like-count");
+
     let deviceId = getDeviceId();
 
 
@@ -130,9 +132,9 @@ async function toggleLike(id){
         .eq("device_id", deviceId);
 
 
+
     if(data.length > 0){
 
-        // Like entfernen
 
         await supabaseClient
             .from("likes")
@@ -146,14 +148,13 @@ async function toggleLike(id){
 
     } else {
 
-        // Like hinzufügen
 
         await supabaseClient
             .from("likes")
             .insert({
 
-                block_id: id,
-                device_id: deviceId
+                block_id:id,
+                device_id:deviceId
 
             });
 
@@ -162,7 +163,12 @@ async function toggleLike(id){
 
     }
 
-    loadBlocks();
+
+
+    let newCount = await getLikeCount(id);
+
+    countElement.textContent = newCount;
+
 
 }
 
