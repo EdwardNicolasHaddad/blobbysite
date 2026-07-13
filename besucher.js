@@ -120,6 +120,15 @@ async function toggleLike(id){
 
     let button = event.currentTarget;
 
+    button.classList.add("animate");
+
+
+    setTimeout(() => {
+
+        button.classList.remove("animate");
+
+    },200);
+
     let countElement = button.parentElement.querySelector(".like-count");
 
     let deviceId = getDeviceId();
