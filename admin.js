@@ -366,4 +366,13 @@ imageInput.addEventListener("change", function () {
 
 });
 
+function removeNewImage(){
+
+    document.getElementById("imageFile").value = "";
+
+    document.getElementById("selectedFile").textContent =
+        "Keine Datei ausgewählt";
+
+}
+
 loadBlocks();
