@@ -135,15 +135,15 @@ async function loadBlocks() {
 
 <br><br>
 
-<button onclick="removeImage(${block.id})">
+<button class="image-delete" onclick="removeImage(${block.id})">
     Bild löschen
 </button>
 
-<button onclick="updateBlock(${block.id})">
+<button class="save" onclick="updateBlock(${block.id})">
     Speichern
 </button>
 
-<button onclick="deleteBlock(${block.id})">
+<button class="block-delete" onclick="deleteBlock(${block.id})">
     Block löschen
 </button>
 
