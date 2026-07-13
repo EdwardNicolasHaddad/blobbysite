@@ -348,13 +348,24 @@ function logout() {
 
 }
 
-document.getElementById("imageFile").addEventListener("change", function () {
+window.addEventListener("DOMContentLoaded", function () {
 
-    const fileName = this.files.length
-        ? this.files[0].name
-        : "Keine Datei ausgewählt";
+    const imageInput = document.getElementById("imageFile");
+    const selectedFile = document.getElementById("selectedFile");
 
-    document.getElementById("selectedFile").textContent = fileName;
+    imageInput.addEventListener("change", function () {
+
+        if (this.files.length > 0) {
+
+            selectedFile.textContent = this.files[0].name;
+
+        } else {
+
+            selectedFile.textContent = "Keine Datei ausgewählt";
+
+        }
+
+    });
 
 });
 
