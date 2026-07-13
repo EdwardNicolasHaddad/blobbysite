@@ -24,6 +24,16 @@
     Lade Inhalte...
 </div>
 
+<script>
+
+if(sessionStorage.getItem("visitor") !== "true"){
+
+    window.location.href = "index.html";
+
+}
+
+</script>
+    
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 <script src="supabase.js"></script>
 <script src="besucher.js"></script>
