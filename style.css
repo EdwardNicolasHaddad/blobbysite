@@ -567,19 +567,19 @@ button.block-delete {
 
     margin:0;
 
-    color:#dc2626;
-
-    font-size:42px;
+    font-size:45px;
 
     line-height:1;
 
     cursor:pointer;
 
-    box-shadow:none;
+    color:#b8b8b8;
+
+    -webkit-text-stroke:1px #b8b8b8;
 
     transition:.25s;
 
-    font-family:Arial, sans-serif;
+    box-shadow:none;
 
 }
 
