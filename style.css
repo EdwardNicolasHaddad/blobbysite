@@ -669,17 +669,7 @@ button.block-delete {
 
 
 
-.download-button{
-
-    width:45px;
-
-    height:45px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
+.fullscreen-button{
 
     background:none;
 
@@ -689,6 +679,10 @@ button.block-delete {
 
     margin:0;
 
+    width:45px;
+
+    height:45px;
+
     cursor:pointer;
 
     box-shadow:none;
@@ -696,8 +690,7 @@ button.block-delete {
 }
 
 
-
-.download-button svg{
+.fullscreen-button svg{
 
     width:35px;
 
@@ -718,16 +711,14 @@ button.block-delete {
 }
 
 
-
-.download-button:hover svg{
+.fullscreen-button:hover svg{
 
     transform:scale(1.15);
 
 }
 
 
-
-.download-button:active svg{
+.fullscreen-button:active svg{
 
     transform:scale(.95);
 
