@@ -220,6 +220,22 @@ async function toggleLike(id){
 
 }
 
+function openImage(imageUrl){
+
+    document.getElementById("fullscreenImage").src = imageUrl;
+
+    document.getElementById("imageViewer").style.display = "flex";
+
+}
+
+
+function closeImage(){
+
+    document.getElementById("imageViewer").style.display = "none";
+
+    document.getElementById("fullscreenImage").src = "";
+
+}
 
 function logout() {
 
