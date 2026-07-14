@@ -641,3 +641,8 @@ button.block-delete {
     transform:scale(1.35);
 
 }
+
+.admin-title,
+.admin-subtitle {
+    color: white;
+}
