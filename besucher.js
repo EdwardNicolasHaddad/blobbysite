@@ -71,6 +71,12 @@ async function loadBlocks() {
 
     <div class="text">
 
+        ${
+            block.title
+            ? `<h2>${block.title}</h2>`
+            : ""
+        }
+
         <p>${block.text}</p>
 
     </div>
