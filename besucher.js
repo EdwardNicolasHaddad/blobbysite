@@ -303,6 +303,44 @@ const fullscreenImage = document.getElementById("fullscreenImage");
 
 function updateImage(){
 
+    let windowElement = document.querySelector(".image-window");
+
+
+    let maxX = (fullscreenImage.width * imageScale - windowElement.clientWidth) / 2;
+
+    let maxY = (fullscreenImage.height * imageScale - windowElement.clientHeight) / 2;
+
+
+    if(maxX < 0){
+        maxX = 0;
+    }
+
+
+    if(maxY < 0){
+        maxY = 0;
+    }
+
+
+    if(imageX > maxX){
+        imageX = maxX;
+    }
+
+
+    if(imageX < -maxX){
+        imageX = -maxX;
+    }
+
+
+    if(imageY > maxY){
+        imageY = maxY;
+    }
+
+
+    if(imageY < -maxY){
+        imageY = -maxY;
+    }
+
+
     fullscreenImage.style.transform =
         `translate(${imageX}px, ${imageY}px) scale(${imageScale})`;
 
@@ -313,6 +351,9 @@ function updateImage(){
 fullscreenImage.addEventListener("wheel", function(event){
 
     event.preventDefault();
+
+
+    let oldScale = imageScale;
 
 
     if(event.deltaY < 0){
@@ -330,10 +371,15 @@ fullscreenImage.addEventListener("wheel", function(event){
 
         imageScale = 1;
 
-        imageX = 0;
-        imageY = 0;
-
     }
+
+
+    // Position proportional anpassen
+    let scaleChange = imageScale / oldScale;
+
+
+    imageX *= scaleChange;
+    imageY *= scaleChange;
 
 
     updateImage();
