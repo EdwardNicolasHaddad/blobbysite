@@ -208,6 +208,8 @@ function setupImageInputs(){
 
 async function updateBlock(id) {
 
+    let title = document.getElementById("title-" + id).value;
+    
     let text = document.getElementById("text-" + id).value;
 
     let newPosition = Number(document.getElementById("position-" + id).value);
@@ -281,9 +283,10 @@ async function updateBlock(id) {
 
 
     let updateData = {
+        title: title,
         text: text,
         position: newPosition
-    };
+    };   
 
 
 
