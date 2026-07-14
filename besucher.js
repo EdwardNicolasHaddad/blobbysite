@@ -348,7 +348,8 @@ fullscreenImage.addEventListener("mousedown", function(event){
         return;
     }
 
-
+    event.preventDefault();
+    
     isDragging = true;
 
 
