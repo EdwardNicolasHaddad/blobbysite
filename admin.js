@@ -1,6 +1,7 @@
 async function addBlock() {
 
     let position = Number(document.getElementById("position").value);
+    let title = document.getElementById("blockTitle").value;
     let text = document.getElementById("blockText").value;
     let file = document.getElementById("imageFile").files[0];
 
