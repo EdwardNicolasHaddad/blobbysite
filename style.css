@@ -646,3 +646,11 @@ button.block-delete {
 .admin-subtitle {
     color: white;
 }
+
+.text h2 {
+
+    font-size:32px;
+    color:#1e3a8a;
+    margin-bottom:20px;
+
+}
