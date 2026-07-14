@@ -744,7 +744,7 @@ button.block-delete {
 
     align-items:center;
 
-    pointer-events:none;
+    pointer-events:auto;
 
 }
 
