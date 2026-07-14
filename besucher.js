@@ -244,6 +244,14 @@ function closeImage(){
 
     fullscreenImage.style.transform = "scale(1)";
 
+    imageScale = 1;
+
+    imageX = 0;
+
+    imageY = 0;
+
+    fullscreenImage.style.transform = "translate(0,0) scale(1)";
+
 }
 
 function logout() {
@@ -282,8 +290,20 @@ loadBlocks();
 
 let imageScale = 1;
 
+let imageX = 0;
+let imageY = 0;
 
-document.getElementById("fullscreenImage").addEventListener("wheel", function(event){
+let isDragging = false;
+
+let startX = 0;
+let startY = 0;
+
+
+const fullscreenImage = document.getElementById("fullscreenImage");
+
+
+
+fullscreenImage.addEventListener("wheel", function(event){
 
     event.preventDefault();
 
@@ -303,6 +323,9 @@ document.getElementById("fullscreenImage").addEventListener("wheel", function(ev
 
         imageScale = 1;
 
+        imageX = 0;
+        imageY = 0;
+
     }
 
 
@@ -313,6 +336,64 @@ document.getElementById("fullscreenImage").addEventListener("wheel", function(ev
     }
 
 
-    this.style.transform = `scale(${imageScale})`;
+    updateImage();
 
 });
+
+
+
+fullscreenImage.addEventListener("mousedown", function(event){
+
+    if(imageScale <= 1){
+        return;
+    }
+
+
+    isDragging = true;
+
+
+    startX = event.clientX - imageX;
+
+    startY = event.clientY - imageY;
+
+
+    fullscreenImage.style.cursor = "grabbing";
+
+});
+
+
+
+window.addEventListener("mousemove", function(event){
+
+    if(!isDragging){
+        return;
+    }
+
+
+    imageX = event.clientX - startX;
+
+    imageY = event.clientY - startY;
+
+
+    updateImage();
+
+});
+
+
+
+window.addEventListener("mouseup", function(){
+
+    isDragging = false;
+
+    fullscreenImage.style.cursor = "grab";
+
+});
+
+
+
+function updateImage(){
+
+    fullscreenImage.style.transform =
+        `translate(${imageX}px, ${imageY}px) scale(${imageScale})`;
+
+}
