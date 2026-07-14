@@ -226,6 +226,8 @@ function openImage(imageUrl){
 
     document.getElementById("imageViewer").style.display = "flex";
 
+    document.body.style.overflow = "hidden";
+
 }
 
 
@@ -235,8 +237,9 @@ function closeImage(){
 
     document.getElementById("fullscreenImage").src = "";
 
-}
+    document.body.style.overflow = "auto";
 
+}
 function logout() {
 
     sessionStorage.removeItem("visitor");
