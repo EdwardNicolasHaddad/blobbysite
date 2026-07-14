@@ -777,6 +777,10 @@ button.block-delete {
 
     cursor:grab;
 
+    user-select:none;
+    
+    -webkit-user-drag:none;
+
 }
 
 
