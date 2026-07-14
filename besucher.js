@@ -123,23 +123,21 @@ async function loadBlocks() {
         block.image_url
         ?
         `
-        <a 
-            class="download-button"
-            href="${block.image_url}"
-            download
+        <button
+            class="fullscreen-button"
+            onclick="openImage('${block.image_url}')"
         >
 
-            <svg viewBox="0 0 24 24">
+                <svg viewBox="0 0 24 24">
 
-                <path d="M12 3v12"/>
-
-                <path d="M7 10l5 5 5-5"/>
-
-                <path d="M5 21h14"/>
+                <path d="M3 9V3h6"/>
+                <path d="M21 9V3h-6"/>
+                <path d="M3 15v6h6"/>
+                <path d="M21 15v6h-6"/>
 
             </svg>
 
-        </a>
+        </button>
         `
         :
         ""
