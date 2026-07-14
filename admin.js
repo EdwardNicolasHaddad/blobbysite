@@ -117,6 +117,15 @@ async function loadBlocks() {
 
 <br><br>
 
+<label><b>Überschrift:</b></label><br>
+
+<input 
+    id="title-${block.id}" 
+    value="${block.title || ""}"
+>
+
+<br><br>
+
 <label><b>Text:</b></label><br>
 
 <textarea id="text-${block.id}">${block.text}</textarea>
