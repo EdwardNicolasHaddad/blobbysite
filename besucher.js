@@ -88,6 +88,9 @@ async function loadBlocks() {
     }
 
 
+    <div class="bottom-area">
+
+
     <div class="like-area">
 
         <button 
@@ -106,12 +109,44 @@ async function loadBlocks() {
             </svg>
 
         </button>
-        
+
+
         <span class="like-count">
             ${likeCount}
         </span>
 
     </div>
+
+
+
+    ${
+        block.image_url
+        ?
+        `
+        <a 
+            class="download-button"
+            href="${block.image_url}"
+            download
+        >
+
+            <svg viewBox="0 0 24 24">
+
+                <path d="M12 3v12"/>
+
+                <path d="M7 10l5 5 5-5"/>
+
+                <path d="M5 21h14"/>
+
+            </svg>
+
+        </a>
+        `
+        :
+        ""
+    }
+
+
+</div>
 
 `;
 
