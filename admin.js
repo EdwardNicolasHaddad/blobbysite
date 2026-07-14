@@ -442,4 +442,55 @@ function removeNewImage(){
 
 }
 
+async function loadContent(){
+
+    let {data, error} = await supabaseClient
+        .from("content")
+        .select("*")
+        .eq("id",1)
+        .single();
+
+
+    if(error){
+        console.log(error);
+        return;
+    }
+
+
+    document.getElementById("siteTitle").value = data.title;
+    document.getElementById("siteSubtitle").value = data.text;
+
+}
+
+
+
+async function saveContent(){
+
+    let title = document.getElementById("siteTitle").value;
+    let text = document.getElementById("siteSubtitle").value;
+
+
+    let {error} = await supabaseClient
+        .from("content")
+        .update({
+            title:title,
+            text:text
+        })
+        .eq("id",1);
+
+
+    if(error){
+
+        console.log(error);
+        alert("Fehler beim Speichern");
+
+    } else {
+
+        alert("Website geändert!");
+
+    }
+
+}
+
 loadBlocks();
+loadContent();
