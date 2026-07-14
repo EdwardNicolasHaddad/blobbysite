@@ -367,9 +367,9 @@ fullscreenImage.addEventListener("wheel", function(event){
 }
 
 
-if(imageScale > 4){
+if(imageScale > 5){
 
-    imageScale = 4;
+    imageScale = 5;
 
 }
 
