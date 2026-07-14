@@ -654,3 +654,81 @@ button.block-delete {
     margin-bottom:20px;
 
 }
+
+.bottom-area{
+
+    margin-top:25px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+
+
+.download-button{
+
+    width:45px;
+
+    height:45px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:none;
+
+    border:none;
+
+    padding:0;
+
+    margin:0;
+
+    cursor:pointer;
+
+    box-shadow:none;
+
+}
+
+
+
+.download-button svg{
+
+    width:35px;
+
+    height:35px;
+
+    fill:none;
+
+    stroke:#555;
+
+    stroke-width:1.8;
+
+    stroke-linecap:round;
+
+    stroke-linejoin:round;
+
+    transition:.25s;
+
+}
+
+
+
+.download-button:hover svg{
+
+    transform:scale(1.15);
+
+}
+
+
+
+.download-button:active svg{
+
+    transform:scale(.95);
+
+}
