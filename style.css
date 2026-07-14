@@ -775,7 +775,7 @@ button.block-delete {
 
     transition:transform .2s ease;
 
-    cursor:grab;
+    cursor:default;
 
     user-select:none;
     
