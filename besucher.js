@@ -196,4 +196,28 @@ function logout() {
 
 }
 
+async function loadContent(){
+
+    let {data, error} = await supabaseClient
+        .from("content")
+        .select("*")
+        .eq("id",1)
+        .single();
+
+
+    if(error){
+
+        console.log(error);
+        return;
+
+    }
+
+
+    document.getElementById("title").textContent = data.title;
+
+    document.getElementById("subtitle").textContent = data.text;
+
+}
+
+loadContent();
 loadBlocks();
