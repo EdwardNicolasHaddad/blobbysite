@@ -394,7 +394,51 @@ window.addEventListener("mouseup", function(){
 
 function updateImage(){
 
+    limitImagePosition();
+
+
     fullscreenImage.style.transform =
         `translate(${imageX}px, ${imageY}px) scale(${imageScale})`;
+
+}
+
+function limitImagePosition(){
+
+    let rect = fullscreenImage.getBoundingClientRect();
+
+
+    let maxX = (rect.width * imageScale - window.innerWidth) / 2;
+
+    let maxY = (rect.height * imageScale - window.innerHeight) / 2;
+
+
+    if(maxX < 0){
+        maxX = 0;
+    }
+
+
+    if(maxY < 0){
+        maxY = 0;
+    }
+
+
+    if(imageX > maxX){
+        imageX = maxX;
+    }
+
+
+    if(imageX < -maxX){
+        imageX = -maxX;
+    }
+
+
+    if(imageY > maxY){
+        imageY = maxY;
+    }
+
+
+    if(imageY < -maxY){
+        imageY = -maxY;
+    }
 
 }
