@@ -57,6 +57,7 @@ async function addBlock() {
         .from("blocks")
         .insert({
             position: position,
+            title: title,
             text: text,
             image_url: imageUrl
         });
