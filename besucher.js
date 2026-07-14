@@ -246,48 +246,6 @@ function closeImage(){
 
 }
 
-let imageScale = 1;
-
-
-const fullscreenImage = document.getElementById("fullscreenImage");
-
-
-fullscreenImage.addEventListener("wheel", function(event){
-
-    event.preventDefault();
-
-
-    if(event.deltaY < 0){
-
-        imageScale += 0.1;
-
-    } else {
-
-        imageScale -= 0.1;
-
-    }
-
-
-    if(imageScale < 1){
-
-        imageScale = 1;
-
-    }
-
-
-    if(imageScale > 4){
-
-        imageScale = 4;
-
-    }
-
-
-    fullscreenImage.style.transform =
-        `scale(${imageScale})`;
-
-
-});
-
 function logout() {
 
     sessionStorage.removeItem("visitor");
@@ -321,3 +279,40 @@ async function loadContent(){
 
 loadContent();
 loadBlocks();
+
+let imageScale = 1;
+
+
+document.getElementById("fullscreenImage").addEventListener("wheel", function(event){
+
+    event.preventDefault();
+
+
+    if(event.deltaY < 0){
+
+        imageScale += 0.15;
+
+    } else {
+
+        imageScale -= 0.15;
+
+    }
+
+
+    if(imageScale < 1){
+
+        imageScale = 1;
+
+    }
+
+
+    if(imageScale > 4){
+
+        imageScale = 4;
+
+    }
+
+
+    this.style.transform = `scale(${imageScale})`;
+
+});
