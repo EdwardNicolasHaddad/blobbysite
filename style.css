@@ -771,6 +771,10 @@ button.block-delete {
     box-shadow:
         0 20px 50px rgba(0,0,0,.35);
 
+    cursor:zoom-in;
+
+    transition:transform .2s ease;
+
 }
 
 
