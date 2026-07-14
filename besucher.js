@@ -356,15 +356,29 @@ fullscreenImage.addEventListener("wheel", function(event){
     let oldScale = imageScale;
 
 
-    if(event.deltaY < 0){
+   if(event.deltaY < 0){
 
-        imageScale += 0.15;
+    imageScale += 0.15;
 
-    } else {
+} else {
 
-        imageScale -= 0.15;
+    imageScale -= 0.15;
 
-    }
+}
+
+
+if(imageScale > 4){
+
+    imageScale = 4;
+
+}
+
+
+if(imageScale < 1){
+
+    imageScale = 1;
+
+}
 
 
     if(imageScale < 1){
